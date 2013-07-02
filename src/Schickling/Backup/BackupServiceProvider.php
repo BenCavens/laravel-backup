@@ -26,7 +26,8 @@ class BackupServiceProvider extends ServiceProvider {
 	protected function getDatabase()
 	{
 		$databaseConfig = $this->app->config['database'];
-		if ($databaseConfig['default'] != 'mysql')
+		
+		if($databaseConfig['connections'][$default]['driver'] !='mysql')
 		{
 			throw new \Exception('Database driver not supported yet');
 		}
